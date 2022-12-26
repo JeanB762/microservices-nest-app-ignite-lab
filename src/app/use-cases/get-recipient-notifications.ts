@@ -20,9 +20,7 @@ export class GetRecipientNotifications {
     const { recipientId } = request;
 
     const notifications =
-      await this.notificationsRepository.getNotificationsByRecipientId(
-        recipientId,
-      );
+      await this.notificationsRepository.findManyByRecipientId(recipientId);
 
     return { notifications };
   }
